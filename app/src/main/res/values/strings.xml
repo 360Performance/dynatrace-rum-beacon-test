@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">beaconTest</string>
+    <string name="button_create_user_action">Click to create User Action</string>
+    <string name="responseText">No User Action created yet...</string>
+</resources>

@@ -1,0 +1,37 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.dynatrace.tools.android:gradle-plugin:8.+'
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.1.2' apply false
+    id 'com.android.library' version '7.1.2' apply false
+}
+
+apply plugin: 'com.dynatrace.instrumentation'
+dynatrace {
+    configurations {
+        sampleConfig {
+            autoStart {
+                applicationId 'appIdGoesHere'
+                beaconUrl 'https://localhost:9999/mbeacon'
+            }
+            userOptIn false
+            agentBehavior.startupLoadBalancing true
+        }
+    }
+}
+
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
